@@ -27,3 +27,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# Ignorar archivo de configuración con clave API
+config.properties
