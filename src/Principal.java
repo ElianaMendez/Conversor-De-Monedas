@@ -32,35 +32,39 @@ public class Principal {
         try{
             var parUsuario = lectura.nextInt();
             ParMonedas par = consulta.buscaPar(parUsuario);
+            if(par == null){
+                return;
+            }
             System.out.println("Ingresa el monto que quieres convertir");
             var valorAConvertir = lectura.nextDouble();
             var valorConvertido = valorAConvertir * par.conversion_rate();
 
             if(parUsuario == 1){
-                System.out.println("El valor de "+valorAConvertir+"["+monedaUno+"]"+" corresponde " +
+                System.out.println("El valor de "+valorAConvertir+" ["+monedaUno+"]"+" corresponde " +
                         "al valor de ---> "+valorConvertido+" ["+monedaDos+"]");
             } else if (parUsuario == 2){
-                System.out.println("El valor de "+valorAConvertir+"["+monedaTres+"]"+" corresponde " +
+                System.out.println("El valor de "+valorAConvertir+" ["+monedaTres+"]"+" corresponde " +
                         "al valor de ---> "+valorConvertido+" ["+monedaCuatro+"]");
             } else if (parUsuario == 3){
-                System.out.println("El valor de "+valorAConvertir+"["+monedaCinco+"]"+" corresponde " +
+                System.out.println("El valor de "+valorAConvertir+" ["+monedaCinco+"]"+" corresponde " +
                         "al valor de ---> "+valorConvertido+" ["+monedaSeis+"]");
             } else if (parUsuario == 4){
-                System.out.println("El valor de "+valorAConvertir+"["+monedaDos+"]"+" corresponde " +
+                System.out.println("El valor de "+valorAConvertir+" "+monedaDos+"]"+" corresponde " +
                         "al valor de ---> "+valorConvertido+" ["+monedaTres+"]");
             } else if (parUsuario == 5){
-                System.out.println("El valor de "+valorAConvertir+"["+monedaCuatro+"]"+" corresponde " +
+                System.out.println("El valor de "+valorAConvertir+" ["+monedaCuatro+"]"+" corresponde " +
                         "al valor de ---> "+valorConvertido+" ["+monedaCinco+"]");
             } else if (parUsuario == 6){
-                System.out.println("El valor de "+valorAConvertir+"["+monedaUno+"]"+" corresponde " +
+                System.out.println("El valor de "+valorAConvertir+" ["+monedaUno+"]"+" corresponde " +
                         "al valor de ---> "+valorConvertido+" ["+monedaSeis+"]");
+            }else{
+                System.out.println("Finalizando la aplicación");
             }
 
         }catch (NumberFormatException e) {
             System.out.println("Número no enconstrado "+e.getMessage());
         }catch (RuntimeException e){
             System.out.println(e.getMessage());
-            System.out.println("Finalizando la aplicación");
 
         }
     }

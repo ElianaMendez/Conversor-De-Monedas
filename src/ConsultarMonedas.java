@@ -1,5 +1,4 @@
 import com.google.gson.Gson;
-
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -38,10 +37,11 @@ public class ConsultarMonedas {
                 parElegido = sextoPar;
             } else if (numeroParMonedas == 7){
                 System.out.println("Saliendo del Programa...gracias por utilizar nuestra aplicación");
+                break;
             } else {
                 System.out.println("La opcion ingresada no es válida.");
+                break;
             }
-            break;
         }
 
         URI direccion = URI.create("https://v6.exchangerate-api.com/v6/7a653b2f29bad516a08f83ec/" +
@@ -57,7 +57,7 @@ public class ConsultarMonedas {
                     .send(request, HttpResponse.BodyHandlers.ofString());
             return new Gson().fromJson(response.body(),ParMonedas.class);
         } catch (Exception e) {
-            throw new RuntimeException("No encontré esa paridad de monedas");
+            return null;
         }
     }
 }
