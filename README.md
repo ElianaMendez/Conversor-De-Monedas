@@ -1,91 +1,87 @@
-
 # Conversor de Monedas 💱
 
-Aplicación de consola desarrollada en Java que permite convertir montos entre diferentes monedas utilizando datos en tiempo real proporcionados por la API de ExchangeRate.
+Aplicación de consola desarrollada en **Java** que permite convertir montos entre diferentes monedas utilizando datos en tiempo real proporcionados por la **API de ExchangeRate**.
 
 ## 🚀 Características
 
 - Conversión de monedas en tiempo real.
-- Interfaz de línea de comandos intuitiva.
-- Integración con la API de ExchangeRate para obtener tasas de cambio actualizadas.
-- Manejo de errores y validación de entradas del usuario.
+- Menú interactivo con 6 combinaciones de monedas predefinidas.
+- Consumo de API externa (ExchangeRate).
+- Validación de entrada del usuario.
+- Opción de realizar múltiples conversiones en una sola ejecución.
 
 ## 📋 Requisitos
 
-- Java Development Kit (JDK) 8 o superior.
-- Conexión a Internet para acceder a la API de ExchangeRate.
-- Una clave de API válida de ExchangeRate. Puedes obtener una gratuita en [ExchangeRate API](https://www.exchangerate-api.com/).
+- Java JDK 8 o superior instalado.
+- Acceso a Internet para consumir la API.
+- Clave de API gratuita de [ExchangeRate API](https://www.exchangerate-api.com/).
 
 ## 🛠️ Instalación y Ejecución
 
-1. **Clonar el repositorio**
+### 1. Clonar el repositorio
 
-   ```bash
-   git clone https://github.com/ElianaMendez/Conversor-De-Monedas.git
-   cd Conversor-De-Monedas
-   ```
+```bash
+git clone https://github.com/ElianaMendez/Conversor-De-Monedas.git
+cd Conversor-De-Monedas
+```
 
-2. **Configurar la clave de API**
+### 2. Configurar tu clave de API
 
-   Crea un archivo llamado `.env` en la raíz del proyecto y añade tu clave de API:
+Edita la clase `ConsultarMonedas.java` y agrega tu clave API en el string correspondiente:
 
-   ```env
-   API_KEY=TU_CLAVE_DE_API
-   ```
+```java
+private static final String API_KEY = "TU_CLAVE_API";
+```
 
-3. **Compilar el proyecto**
+### 3. Compilar y ejecutar
 
-   ```bash
-   javac -d bin src/*.java
-   ```
+```bash
+javac -d bin src/*.java
+java -cp bin Principal
+```
 
-4. **Ejecutar la aplicación**
-
-   ```bash
-   java -cp bin ConversorDeMonedas
-   ```
-
-## 🔄 Gráfica de Flujo del Proyecto
-
-A continuación, se presenta la gráfica de flujo que describe el funcionamiento del conversor de monedas:
+## 🔄 Flujo del Proyecto
 
 ```mermaid
 flowchart TD
-    A[Inicio] --> B[Solicitar moneda de origen]
-    B --> C[Solicitar moneda de destino]
-    C --> D[Solicitar monto a convertir]
-    D --> E[Validar entradas]
-    E --> F[Consultar API de ExchangeRate]
-    F --> G[Obtener tasa de cambio]
-    G --> H[Calcular monto convertido]
-    H --> I[Mostrar resultado al usuario]
-    I --> J{¿Realizar otra conversión?}
+    A[Inicio del programa] --> B[Mostrar menú con 6 opciones de conversión]
+    B --> C[Usuario elige una opción]
+    C --> D[Se define el par de monedas según la opción]
+    D --> E[Se solicita al usuario ingresar el monto a convertir]
+    E --> F[Llamar a ConsultarMonedas con el par seleccionado y monto]
+    F --> G[Se realiza la consulta a la API]
+    G --> H[Se obtiene el resultado de la conversión]
+    H --> I[Se imprime el resultado en consola]
+    I --> J{¿Desea realizar otra conversión?}
     J -- Sí --> B
-    J -- No --> K[Fin]
+    J -- No --> K[Fin del programa]
 ```
 
 ## 📸 Capturas de Pantalla
 
-A continuación, se presentan algunas capturas de pantalla que ilustran el funcionamiento de la aplicación:
+Coloca tus capturas dentro de una carpeta `/screenshots` y haz referencia aquí:
 
-1. **Interfaz de inicio**
+1. **Menú principal**
 
-   ![Inicio](./screenshots/inicio.png)
+   ![Menú Principal](./screenshots/menu.png)
 
-2. **Ingreso de datos**
+2. **Conversión exitosa**
 
-   ![Ingreso de datos](./screenshots/ingreso_datos.png)
+   ![Conversión](./screenshots/conversion.png)
 
-3. **Resultado de la conversión**
+3. **Error de conexión/API**
 
-   ![Resultado](./screenshots/resultado.png)
-
-*Nota: Asegúrate de colocar las imágenes en una carpeta llamada `screenshots` dentro del repositorio.*
+   ![Error](./screenshots/error.png)
 
 ## 📄 Licencia
 
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
 
-## 🙋‍♀️ Autor
+## 🙋‍♀️ Autora
 
-- **Eliana Méndez** - [GitHub](https://github.com/ElianaMendez)
+**Eliana Méndez**  
+🔗 [GitHub](https://github.com/ElianaMendez)
+
+---
+
+¡Gracias por visitar el proyecto! 🌍 Si te fue útil, no dudes en darle una ⭐ y contribuir.
