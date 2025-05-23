@@ -22,7 +22,6 @@ public class ConsultarMonedas {
         String sextoPar = monedaUno + "/" + monedaSeis;
         String parElegido = null;
 
-        while(numeroParMonedas != 0){
             if(numeroParMonedas == 1){
                 parElegido = primerPar;
             } else if (numeroParMonedas == 2){
@@ -35,14 +34,9 @@ public class ConsultarMonedas {
                 parElegido = quintoPar;
             } else if(numeroParMonedas == 6){
                 parElegido = sextoPar;
-            } else if (numeroParMonedas == 7){
-                System.out.println("Saliendo del Programa...gracias por utilizar nuestra aplicación");
-                break;
             } else {
-                System.out.println("La opcion ingresada no es válida.");
-                break;
+                System.out.println("Opción inválida.");
             }
-        }
 
         URI direccion = URI.create("https://v6.exchangerate-api.com/v6/7a653b2f29bad516a08f83ec/" +
                 "pair/"+parElegido);
