@@ -31,7 +31,7 @@ public class Principal {
             try {
                 int parUsuario = lectura.nextInt();
                 if (parUsuario == 7) {
-                    System.out.println("Finalizando la aplicación. ¡Gracias por usar nuestro conversor!");
+                    System.out.println("Finalizando la aplicación. ¡Gracias por usar nuestro conversor de monedas!");
                     break;
                 }
 
