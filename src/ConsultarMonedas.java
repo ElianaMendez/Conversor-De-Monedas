@@ -3,8 +3,22 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 public class ConsultarMonedas {
+
+    private String getApiKey() {
+        Properties props = new Properties();
+        try (FileInputStream fis = new FileInputStream("config.properties")) {
+            props.load(fis);
+            return props.getProperty("API_KEY");
+        } catch (IOException e) {
+            System.out.println("Error al cargar la API KEY: " + e.getMessage());
+            return null;
+        }
+    }
 
     public ParMonedas buscaPar(int numeroParMonedas){
         String monedaUno = "USD";
@@ -22,24 +36,27 @@ public class ConsultarMonedas {
         String sextoPar = monedaUno + "/" + monedaSeis;
         String parElegido = null;
 
-            if(numeroParMonedas == 1){
-                parElegido = primerPar;
-            } else if (numeroParMonedas == 2){
-                parElegido = segundoPar;
-            } else if (numeroParMonedas == 3){
-                parElegido = tercerPar;
-            } else if (numeroParMonedas == 4){
-                parElegido = cuartoPar;
-            } else if (numeroParMonedas == 5){
-                parElegido = quintoPar;
-            } else if(numeroParMonedas == 6){
-                parElegido = sextoPar;
-            } else {
-                System.out.println("Opción inválida.");
-            }
+        if(numeroParMonedas == 1){
+            parElegido = primerPar;
+        } else if (numeroParMonedas == 2){
+            parElegido = segundoPar;
+        } else if (numeroParMonedas == 3){
+            parElegido = tercerPar;
+        } else if (numeroParMonedas == 4){
+            parElegido = cuartoPar;
+        } else if (numeroParMonedas == 5){
+            parElegido = quintoPar;
+        } else if(numeroParMonedas == 6){
+            parElegido = sextoPar;
+        } else {
+            System.out.println("Opción inválida.");
+            return null;
+        }
 
-        URI direccion = URI.create("https://v6.exchangerate-api.com/v6/7a653b2f29bad516a08f83ec/" +
-                "pair/"+parElegido);
+        String apiKey = getApiKey();
+        if (apiKey == null) return null;
+
+        URI direccion = URI.create("https://v6.exchangerate-api.com/v6/" + apiKey + "/pair/" + parElegido);
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -51,6 +68,7 @@ public class ConsultarMonedas {
                     .send(request, HttpResponse.BodyHandlers.ofString());
             return new Gson().fromJson(response.body(),ParMonedas.class);
         } catch (Exception e) {
+            System.out.println("Error en la consulta: " + e.getMessage());
             return null;
         }
     }
