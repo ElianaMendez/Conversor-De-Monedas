@@ -96,7 +96,6 @@ F -- No --> G[Fin]
 3. **Resultado de la conversión:**
    ![Resultado de la conversión](assets/resultado.png)
 
-*Nota: Reemplaza `ruta/a/imagenX.png` con la ruta real de tus imágenes.*
 
 ## 🤝 Contribuciones
 
