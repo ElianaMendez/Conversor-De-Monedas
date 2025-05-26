@@ -110,7 +110,7 @@ Las contribuciones son bienvenidas. Si deseas mejorar este proyecto, por favor:
 
 ### 👩‍💻 Autor
 
-<img src="assets/Foto Eliana.jpg" width="150" alt="Eliana Méndez" style="border-radius: 50%;">
+<img src="assets/foto_eliana.jpg" width="150" alt="Eliana Méndez" style="border-radius: 50%;">
 
 **Eliana Méndez**  
 Desarrolladora Java | QA Engineer | Apasionada por el aprendizaje constante  
