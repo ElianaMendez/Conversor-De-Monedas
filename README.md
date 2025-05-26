@@ -26,15 +26,22 @@ Proyecto desarrollado en Java que permite convertir entre diferentes monedas en 
 
 ## 📁 Estructura del Proyecto
 
-```
+```text
 Conversor-De-Monedas/
-├── src/
-│   ├── ConsultarMonedas.java
-│   ├── ParMonedas.java
-│   └── Main.java
-├── config.properties
-├── .gitignore
-└── README.md
+├── .idea/                      # Ajustes del proyecto (IDE)
+├── assets/                     # Recursos estáticos
+│   ├── foto_eliana.jpg         # Imagen de perfil usada en el README
+│   ├── ingresodatos.png        # Captura: ingreso de datos
+│   ├── inicio.png              # Captura: menú principal
+│   └── resultado.png           # Captura: resultado de conversión
+├── src/                        # Código fuente
+│   ├── ConsultarMonedas.java   # Llama a la API y obtiene los datos
+│   ├── ParMonedas.java         # POJO para mapear la respuesta JSON
+│   └── Principal.java          # Punto de entrada de la aplicación
+├── config-example.properties   # Ejemplo de configuración para la API Key
+├── .gitignore                  # Archivos/directorios excluidos de Git
+├── Conversor-De-Monedas.iml    # Fichero de proyecto de IntelliJ
+└── README.md                   # Documentación (este archivo)
 ```
 
 ## ⚙️ Configuración Inicial
