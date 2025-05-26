@@ -1,87 +1,117 @@
-# Conversor de Monedas 💱
 
-Aplicación de consola desarrollada en **Java** que permite convertir montos entre diferentes monedas utilizando datos en tiempo real proporcionados por la **API de ExchangeRate**.
+![Conversor de Monedas Banner](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
+![Badge Terminado](https://img.shields.io/badge/STATUS-TERMINADO-green)
+![GitHub last commit](https://img.shields.io/github/last-commit/ElianaMendez/Conversor-De-Monedas)
+![GitHub repo size](https://img.shields.io/github/repo-size/ElianaMendez/Conversor-De-Monedas)
+![GitHub language count](https://img.shields.io/github/languages/count/ElianaMendez/Conversor-De-Monedas)
+
+# 💱 Conversor de Monedas
+
+Proyecto desarrollado en Java que permite convertir entre diferentes monedas en tiempo real, utilizando la API de ExchangeRate. Este conversor fue creado como parte del programa Oracle Next Education (ONE) de Alura Latam.
 
 ## 🚀 Características
 
-- Conversión de monedas en tiempo real.
-- Menú interactivo con 6 combinaciones de monedas predefinidas.
-- Consumo de API externa (ExchangeRate).
-- Validación de entrada del usuario.
-- Opción de realizar múltiples conversiones en una sola ejecución.
+- Conversión de monedas en tiempo real utilizando la API de ExchangeRate.
+- Interfaz de línea de comandos amigable para el usuario.
+- Manejo seguro de la clave de API mediante un archivo de configuración externo.
+- Estructura modular con clases separadas para facilitar el mantenimiento y la escalabilidad.
 
-## 📋 Requisitos
+## 🛠️ Tecnologías Utilizadas
 
-- Java JDK 8 o superior instalado.
-- Acceso a Internet para consumir la API.
-- Clave de API gratuita de [ExchangeRate API](https://www.exchangerate-api.com/).
+- **Lenguaje de programación:** Java
+- **API de tasas de cambio:** [ExchangeRate API](https://www.exchangerate-api.com/)
+- **Biblioteca para manejo de JSON:** Gson
+- **Control de versiones:** Git & GitHub
+- **IDE recomendado:** IntelliJ IDEA
 
-## 🛠️ Instalación y Ejecución
+## 📁 Estructura del Proyecto
 
-### 1. Clonar el repositorio
+```
+Conversor-De-Monedas/
+├── src/
+│   ├── ConsultarMonedas.java
+│   ├── ParMonedas.java
+│   └── Main.java
+├── config.properties
+├── .gitignore
+└── README.md
+```
+
+## ⚙️ Configuración Inicial
+
+### 1. Clonar el Repositorio
 
 ```bash
 git clone https://github.com/ElianaMendez/Conversor-De-Monedas.git
 cd Conversor-De-Monedas
 ```
 
-### 2. Configurar tu clave de API
+### 2. Obtener una Clave de API
 
-Edita la clase `ConsultarMonedas.java` y agrega tu clave API en el string correspondiente:
+Regístrate en [ExchangeRate API](https://www.exchangerate-api.com/) para obtener una clave de API gratuita.
 
-```java
-private static final String API_KEY = "TU_CLAVE_API";
+### 3. Crear el Archivo de Configuración
+
+Crea un archivo llamado `config.properties` en la carpeta `src/` con el siguiente contenido:
+
+```properties
+API_KEY=TU_CLAVE_API
 ```
 
-### 3. Compilar y ejecutar
+Reemplaza `TU_CLAVE_API` con la clave que obtuviste en el paso anterior.
 
-```bash
-javac -d bin src/*.java
-java -cp bin Principal
+### 4. Configurar `.gitignore`
+
+Asegúrate de que el archivo `.gitignore` incluya la siguiente línea para evitar subir tu clave de API al repositorio:
+
+```gitignore
+src/config.properties
 ```
+
+## 🧪 Ejecución del Proyecto
+
+1. Abre el proyecto en tu IDE de preferencia (se recomienda IntelliJ IDEA).
+2. Ejecuta la clase `Main.java`.
+3. Sigue las instrucciones en la consola para realizar conversiones de moneda.
 
 ## 🔄 Flujo del Proyecto
 
 ```mermaid
-flowchart TD
-    A[Inicio del programa] --> B[Mostrar menú con 6 opciones de conversión]
-    B --> C[Usuario elige una opción]
-    C --> D[Se define el par de monedas según la opción]
-    D --> E[Se solicita al usuario ingresar el monto a convertir]
-    E --> F[Llamar a ConsultarMonedas con el par seleccionado y monto]
-    F --> G[Se realiza la consulta a la API]
-    G --> H[Se obtiene el resultado de la conversión]
-    H --> I[Se imprime el resultado en consola]
-    I --> J{¿Desea realizar otra conversión?}
-    J -- Sí --> B
-    J -- No --> K[Fin del programa]
+graph TD
+A[Inicio] --> B[Mostrar opciones de conversión]
+B --> C[Usuario selecciona par de monedas]
+C --> D[Consultar API de ExchangeRate]
+D --> E[Mostrar resultado de la conversión]
+E --> F[¿Realizar otra conversión?]
+F -- Sí --> B
+F -- No --> G[Fin]
 ```
 
 ## 📸 Capturas de Pantalla
 
-Coloca tus capturas dentro de una carpeta `/screenshots` y haz referencia aquí:
+1. **Menú principal:**
+   ![Menú principal](ruta/a/imagen1.png)
+2. **Selección de monedas:**
+   ![Selección de monedas](ruta/a/imagen2.png)
+3. **Resultado de la conversión:**
+   ![Resultado de la conversión](ruta/a/imagen3.png)
 
-1. **Menú principal**
+*Nota: Reemplaza `ruta/a/imagenX.png` con la ruta real de tus imágenes.*
 
-   ![Menú Principal](./screenshots/menu.png)
+## 🤝 Contribuciones
 
-2. **Conversión exitosa**
+Las contribuciones son bienvenidas. Si deseas mejorar este proyecto, por favor:
 
-   ![Conversión](./screenshots/conversion.png)
+1. Haz un fork del repositorio.
+2. Crea una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
+3. Realiza tus cambios y haz commit (`git commit -am 'Agregar nueva funcionalidad'`).
+4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`).
+5. Abre un Pull Request.
 
-3. **Error de conexión/API**
+### 👩‍💻 Autor
 
-   ![Error](./screenshots/error.png)
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
-
-## 🙋‍♀️ Autora
+<img src="assets/Foto Eliana.jpg" width="150" alt="Eliana Méndez" style="border-radius: 50%;">
 
 **Eliana Méndez**  
-🔗 [GitHub](https://github.com/ElianaMendez)
-
----
-
-¡Gracias por visitar el proyecto! 🌍 Si te fue útil, no dudes en darle una ⭐ y contribuir.
+Desarrolladora Java | QA Engineer | Apasionada por el aprendizaje constante  
+[GitHub](https://github.com/ElianaMendez) • [LinkedIn](https://www.linkedin.com/in/tu-usuario)
