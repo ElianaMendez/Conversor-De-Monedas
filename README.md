@@ -90,11 +90,11 @@ F -- No --> G[Fin]
 ## 📸 Capturas de Pantalla
 
 1. **Menú principal:**
-   ![Menú principal](ruta/a/imagen1.png)
+   ![Menú principal](assets/inicio.png)
 2. **Selección de monedas:**
-   ![Selección de monedas](ruta/a/imagen2.png)
+   ![Selección de monedas](assets/ingresodatos.png)
 3. **Resultado de la conversión:**
-   ![Resultado de la conversión](ruta/a/imagen3.png)
+   ![Resultado de la conversión](assets/resultado.png)
 
 *Nota: Reemplaza `ruta/a/imagenX.png` con la ruta real de tus imágenes.*
 
